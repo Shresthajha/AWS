@@ -5,7 +5,7 @@ resource "aws_instance" "dev-instance" {
   depends_on    = [aws_vpc.dev-vpc]
   ami           = "ami-0d63de463e6604d0a"
   instance_type = "t2.micro"
-  subnet_id     = [aws_subnet.dev-subnet]
+  subnet_id     = aws_subnet.dev-subnet.id
   vpc_security_group_ids = [aws_security_group.dev-sg.id]
   
   tags = {
@@ -43,7 +43,7 @@ resource "aws_subnet" "dev-subnet" {
   resource "aws_security_group" "dev-sg" {
   name        = "dev-sg"
   description = "security group for allowing all inbound and outbound traffic"
-  vpc_id      = "aws_vpc.dev-vpc"
+  vpc_id      = "aws_vpc.dev-vpc.id"
 
 #inbound -> allow all
   ingress {
