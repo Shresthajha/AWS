@@ -7,7 +7,7 @@ resource "aws_instance" "dev-instance" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.dev-subnet.id
   vpc_security_group_ids = [aws_security_group.dev-sg.id]
-  key_name = "myInstance"
+  key_name = "shrestha"
   tags = {
     Name = "first instance via terraform"
   }
