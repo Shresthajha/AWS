@@ -29,6 +29,7 @@ resource "aws_vpc" "dev-vpc" {
   resource "aws_security_group" "dev-sg" {
   name        = "dev-sg"
   description = "security group for allowing all inbound and outbound traffic"
+  vpc_id      = "aws_vpc.dev-vpc"
 
   ingress {
     from_port   = 0
