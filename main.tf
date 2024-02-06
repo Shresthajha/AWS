@@ -1,6 +1,6 @@
 
 #EC2
-resource "aws_instance" "ec2Instance" {
+resource "aws_instance" "dev-instance" {
  
   depends_on    = [aws_vpc.dev-vpc]
   ami           = "ami-0d63de463e6604d0a"
