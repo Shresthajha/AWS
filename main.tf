@@ -3,7 +3,7 @@
 #S3 
 resource "aws_s3_bucket" "dev-bucket" {
   bucket = "bucket-name"
-  acl    = "private"
+ 
   tags = {
      Name        = "dev-bucket"
      Environment = "Dev"
