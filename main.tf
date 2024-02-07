@@ -1,4 +1,16 @@
 
+
+#S3 
+resource "aws_s3_bucket" "dev-bucket" {
+  bucket = "bucket-name"
+  acl    = "private"
+  tags = {
+     Name        = "dev-bucket"
+     Environment = "Dev"
+   }
+}
+
+
 #EC2
 resource "aws_instance" "dev-instance" {
  
