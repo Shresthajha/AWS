@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "dev-bucket" {
   bucket = "sdev_sbucket"
  
   tags = {
-     Name        = "dev_bucket"
+     Name        = "sdev_sbucket"
      Environment = "Dev"
    }
 }
