@@ -1,6 +1,7 @@
 
 
 #S3 
+/*
 resource "aws_s3_bucket" "dev-bucket" {
   bucket = "sdev-sbucket"
  
@@ -9,6 +10,7 @@ resource "aws_s3_bucket" "dev-bucket" {
      Environment = "dev"
    }
 }
+*/
 
 
 #EC2
@@ -17,9 +19,11 @@ resource "aws_instance" "dev-instance" {
   depends_on    = [aws_vpc.dev-vpc]
   ami           = "ami-0d63de463e6604d0a"
   instance_type = "t2.micro"
-  subnet_id     = aws_subnet.dev-subnet.id
-  vpc_security_group_ids = [aws_security_group.dev-sg.id]
-  key_name = "shrestha"
+
+  subnet_id                   = aws_subnet.dev-subnet.id
+  vpc_security_group_ids      = [aws_security_group.dev-sg.id]
+  associate_public_ip_address = true
+
   tags = {
     Name = "first instance via terraform"
   }
