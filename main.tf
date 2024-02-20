@@ -79,7 +79,7 @@ resource "aws_subnet" "dev-subnet" {
   }
 }
 */
-
+/*
 resource "aws_dynamodb_table" "dev-table" {
   name           = "dev-table"
   read_capacity  = 10
@@ -92,3 +92,4 @@ resource "aws_dynamodb_table" "dev-table" {
   }
 }
  
+*/
