@@ -14,6 +14,7 @@ resource "aws_s3_bucket" "dev-bucket" {
 
 
 #EC2
+/*
 resource "aws_instance" "dev-instance" {
  
   depends_on    = [aws_vpc.dev-vpc]
@@ -29,9 +30,9 @@ resource "aws_instance" "dev-instance" {
   }
 }
 
-
+*/
 #VPC
-
+/*
 resource "aws_vpc" "dev-vpc" {
   cidr_block         = "10.0.0.0/16"
   instance_tenancy   = "default"
@@ -40,10 +41,10 @@ resource "aws_vpc" "dev-vpc" {
   Name = "dev-vpc"
   }
  }
-
+*/
 
 #SUBNET
-
+/*
 resource "aws_subnet" "dev-subnet" {
   vpc_id     = aws_vpc.dev-vpc.id
   cidr_block = "10.0.1.0/24"
@@ -53,9 +54,9 @@ resource "aws_subnet" "dev-subnet" {
   }
 }
 
-
+*/
   #SG
-
+/*
   resource "aws_security_group" "dev-sg" {
   name        = "dev-sg"
   description = "security group for allowing all inbound and outbound traffic"
@@ -77,5 +78,17 @@ resource "aws_subnet" "dev-subnet" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+*/
 
+resource "aws_dynamodb_table" "dev-table" {
+  name           = "dev-table"
+  read_capacity  = 10
+  write_capacity = 10
+  hash_key       = "ID"
+
+  attribute {
+    name = "ID"
+    type = "N"
+  }
+}
  
